@@ -34,7 +34,7 @@ class CampaignFullscreenMessage: CampaignMessaging {
         var htmlPayload: String?
     #endif
 
-    /// Campaign Fullscreen Message class initializer. It is accessed via the `createMessageObject` method.
+    /// CampaignFullscreenMessage class initializer. It is accessed via the `createMessageObject` method.
     ///  - Parameters:
     ///    - consequence: `RuleConsequence` containing a Message-defining payload
     ///    - state: The CampaignState

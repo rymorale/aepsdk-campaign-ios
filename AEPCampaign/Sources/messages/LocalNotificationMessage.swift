@@ -41,7 +41,7 @@ struct LocalNotificationMessage: CampaignMessaging {
         self.parseLocalNotificationMessagePayload(consequence: consequence)
     }
 
-    /// Creates a Local Notification Message object
+    /// Creates a `LocalNotificationMessage` object
     ///  - Parameters:
     ///    - consequence: `RuleConsequence` containing a Message-defining payload
     ///    - state: The CampaignState
@@ -92,7 +92,7 @@ struct LocalNotificationMessage: CampaignMessaging {
     private func scheduleLocalNotification() {
         // content (message body) is required, bail early if we don't have it
         guard let localNotificationBody = self.content else {
-            Log.trace(label: Self.LOG_TAG, "\(#function) - Cannot schedule local notification, the message consequence.details is nil.")
+            Log.trace(label: Self.LOG_TAG, "\(#function) - Cannot schedule local notification, the message body is nil.")
             return
         }
 

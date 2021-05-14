@@ -81,7 +81,11 @@ struct CampaignView: View {
                         .autocapitalization(.none)
 
                     Button(action: {
-                        // trigger alert
+                        let alertDetailDictionary = ["title": "ACS Alert Message Test", "content": "⚠️ Alert! ⚠️", "confirm": "Take me to adobe.com", "cancel": "Dimiss alert", "url": "https://www.adobe.com", "template": "alert"] as [String: Any]
+                        let alertConsequence = ["id": UUID().uuidString, "type": "iam", "detail": alertDetailDictionary] as [String: Any?]
+                        let data = ["triggeredconsequence": alertConsequence]
+                        let event = Event(name: "rules trigger alert message", type: EventType.campaign, source: EventSource.requestContent, data: data)
+                        MobileCore.dispatch(event: event)
                     }
                     ) {
                         Text("Trigger alert message")
