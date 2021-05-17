@@ -163,7 +163,7 @@ enum CampaignConstants {
         static let RULES_CACHE_DIRECTORY = "campaignrules" //Folder in cache directory contains  assets.
         static let ASSETS_DIR_NAME = "assets"
         enum Keys {
-            static let RULES_CACHE_PREFIX = "cached.campaignrules"
+            static let RULES_CACHE_PREFIX = "cached.campaignrules."
         }
     }
 }
