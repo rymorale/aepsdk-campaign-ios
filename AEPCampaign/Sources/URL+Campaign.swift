@@ -68,8 +68,8 @@ extension URL {
 
         var profileData = [String: String]()
         profileData.merge(data ?? [:]) { _, new in new }
-        profileData[CampaignConstants.Identity.EXPERIENCE_CLOUD_ID] = ecid
-        profileData[CampaignConstants.Campaign.PUSH_PLATFORM] = "apns"
+        profileData[CampaignConstants.Campaign.PROFILE_REQUEST_EXPERIENCE_CLOUD_ID] = ecid
+        profileData[CampaignConstants.Campaign.PROFILE_REQUEST_PUSH_PLATFORM] = "apns"
 
         let encoder = JSONEncoder()
         if let bodyJson = try? encoder.encode(profileData) {

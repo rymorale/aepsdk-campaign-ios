@@ -24,7 +24,8 @@ enum CampaignConstants {
         static let IAM_CONSEQUENCE_TYPE = "iam"
         static let LINKAGE_FIELD_NETWORK_HEADER = "X-InApp-Auth"
         static let DEFAULT_TIMEOUT = 5
-        static let PUSH_PLATFORM = "pushPlatform"
+        static let PROFILE_REQUEST_PUSH_PLATFORM = "pushPlatform"
+        static let PROFILE_REQUEST_EXPERIENCE_CLOUD_ID = "marketingCloudId"
         static let DEFAULT_REGISTRATION_DELAY = TimeInterval(60 * 60 * 24 * 7) // 7 days
         static let DEFAULT_TIMESTAMP_VALUE = -1
         static let SECONDS_IN_A_DAY = 86400
@@ -40,6 +41,8 @@ enum CampaignConstants {
         static let TRACKING_URL = "https://%@/r/?id=%@,%@,%s&mcId=%@"
         static let CAMPAIGN_ENV_PLACEHOLDER = "__%@__"
         static let PATH_SEPARATOR = "/"
+        static let CONTENT_TYPE_APPLICATION = "application/json"
+        static let HEADER_KEY_ACCEPT = "Accept"
 
         enum Scheme {
             static let FILE = "file"

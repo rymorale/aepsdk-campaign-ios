@@ -81,11 +81,12 @@ struct CampaignView: View {
                         .autocapitalization(.none)
 
                     Button(action: {
-                        let alertDetailDictionary = ["title": "ACS Alert Message Test", "content": "⚠️ Alert! ⚠️", "confirm": "Take me to adobe.com", "cancel": "Dimiss alert", "url": "https://www.adobe.com", "template": "alert"] as [String: Any]
-                        let alertConsequence = ["id": UUID().uuidString, "type": "iam", "detail": alertDetailDictionary] as [String: Any?]
-                        let data = ["triggeredconsequence": alertConsequence]
-                        let event = Event(name: "rules trigger alert message", type: EventType.campaign, source: EventSource.requestContent, data: data)
-                        MobileCore.dispatch(event: event)
+//                        let alertDetailDictionary = ["title": "ACS Alert Message Test", "content": "⚠️ Alert! ⚠️", "confirm": "Take me to adobe.com", "cancel": "Dimiss alert", "url": "https://www.adobe.com", "template": "alert"] as [String: Any]
+//                        let alertConsequence = ["id": UUID().uuidString, "type": "iam", "detail": alertDetailDictionary] as [String: Any?]
+//                        let data = ["triggeredconsequence": alertConsequence]
+//                        let event = Event(name: "rules trigger alert message", type: EventType.campaign, source: EventSource.requestContent, data: data)
+//                        MobileCore.dispatch(event: event)
+                        MobileCore.track(state: "alert", data: nil)
                     }
                     ) {
                         Text("Trigger alert message")
@@ -97,12 +98,13 @@ struct CampaignView: View {
                     }.cornerRadius(5)
 
                     Button(action: {
-                        let localDetailDictionary = ["title": "ACS Local Notification Test", "content": "This is some demo text 🌊☄️", "wait": TimeInterval(3), "userData": ["broadlogId": "h1cbf60",
-                                                                                                                                                                           "deliveryId": "154767c"], "template": "local"] as [String: Any]
-                        let localConsequence = ["id": UUID().uuidString, "type": "iam", "detail": localDetailDictionary] as [String: Any?]
-                        let data = ["triggeredconsequence": localConsequence]
-                        let event = Event(name: "rules trigger local notification", type: EventType.campaign, source: EventSource.requestContent, data: data)
-                        MobileCore.dispatch(event: event)
+//                        let localDetailDictionary = ["title": "ACS Local Notification Test", "content": "This is some demo text 🌊☄️", "wait": TimeInterval(3), "userData": ["broadlogId": "h1cbf60",
+//                                                                                                                                                                           "deliveryId": "154767c"], "template": "local"] as [String: Any]
+//                        let localConsequence = ["id": UUID().uuidString, "type": "iam", "detail": localDetailDictionary] as [String: Any?]
+//                        let data = ["triggeredconsequence": localConsequence]
+//                        let event = Event(name: "rules trigger local notification", type: EventType.campaign, source: EventSource.requestContent, data: data)
+//                        MobileCore.dispatch(event: event)
+                        MobileCore.track(action: "local", data: nil)
                     }
                     ) {
                         Text("Trigger local notification")
@@ -115,12 +117,13 @@ struct CampaignView: View {
                 }
                 Group {
                     Button(action: {
-                        addTestHtmlToCache()
-                        let fullscreenDetailDictionary = ["html": "test.html", "template": "fullscreen"] as [String: Any]
-                        let fullscreenConsequence = ["id": UUID().uuidString, "type": "iam", "detail": fullscreenDetailDictionary] as [String: Any?]
-                        let data = ["triggeredconsequence": fullscreenConsequence]
-                        let event = Event(name: "rules trigger fullscreen message", type: EventType.campaign, source: EventSource.requestContent, data: data)
-                        MobileCore.dispatch(event: event)
+//                        addTestHtmlToCache()
+//                        let fullscreenDetailDictionary = ["html": "test.html", "template": "fullscreen"] as [String: Any]
+//                        let fullscreenConsequence = ["id": UUID().uuidString, "type": "iam", "detail": fullscreenDetailDictionary] as [String: Any?]
+//                        let data = ["triggeredconsequence": fullscreenConsequence]
+//                        let event = Event(name: "rules trigger fullscreen message", type: EventType.campaign, source: EventSource.requestContent, data: data)
+//                        MobileCore.dispatch(event: event)
+                        MobileCore.track(action: "fullscreen", data: nil)
                     }
                     ) {
                         Text("Trigger fullscreen message")

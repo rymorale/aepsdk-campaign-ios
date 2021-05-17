@@ -85,7 +85,8 @@ class CampaignState {
         self.campaignRegistrationPaused = configurationData[CampaignConstants.Configuration.CAMPAIGN_REGISTRATION_PAUSED_KEY] as? Bool ?? false
 
         if let mciasServer = campaignMciasServer, let campaignServer = campaignServer, let propertyId = campaignPropertyId, let ecid = ecid {
-            campaignRulesDownloadUrl = URL.getRulesDownloadUrl(mciasServer: mciasServer, campaignServer: campaignServer, propertyId: propertyId, ecid: ecid)
+            let campaignRulesDownloadUrlString = URL.getRulesDownloadUrl(mciasServer: mciasServer, campaignServer: campaignServer, propertyId: propertyId, ecid: ecid)?.absoluteString.removingPercentEncoding ?? ""
+            campaignRulesDownloadUrl = URL(string: campaignRulesDownloadUrlString)
         } else {
             Log.debug(label: LOG_TAG, "\(#function) - Unable to create Campaign Rules download URL. Required Configuration is missing.")
         }
