@@ -86,7 +86,7 @@ struct CampaignView: View {
 //                        let data = ["triggeredconsequence": alertConsequence]
 //                        let event = Event(name: "rules trigger alert message", type: EventType.campaign, source: EventSource.requestContent, data: data)
 //                        MobileCore.dispatch(event: event)
-                        MobileCore.track(state: "alert", data: nil)
+                        MobileCore.track(action: "alert", data: nil)
                     }
                     ) {
                         Text("Trigger alert message")

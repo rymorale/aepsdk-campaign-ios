@@ -85,8 +85,7 @@ class CampaignState {
         self.campaignRegistrationPaused = configurationData[CampaignConstants.Configuration.CAMPAIGN_REGISTRATION_PAUSED_KEY] as? Bool ?? false
 
         if let mciasServer = campaignMciasServer, let campaignServer = campaignServer, let propertyId = campaignPropertyId, let ecid = ecid {
-            let campaignRulesDownloadUrlString = URL.getRulesDownloadUrl(mciasServer: mciasServer, campaignServer: campaignServer, propertyId: propertyId, ecid: ecid)?.absoluteString.removingPercentEncoding ?? ""
-            campaignRulesDownloadUrl = URL(string: campaignRulesDownloadUrlString)
+            campaignRulesDownloadUrl = URL.getRulesDownloadUrl(mciasServer: mciasServer, campaignServer: campaignServer, propertyId: propertyId, ecid: ecid)
         } else {
             Log.debug(label: LOG_TAG, "\(#function) - Unable to create Campaign Rules download URL. Required Configuration is missing.")
         }
@@ -174,7 +173,7 @@ class CampaignState {
             return true
         }
 
-        let retrievedTimeStamp = dataStore.getLong(key: CampaignConstants.Campaign.Datastore.REGISTRATION_TIMESTAMP_KEY) ?? Int64(CampaignConstants.Campaign.DEFAULT_TIMESTAMP_VALUE)
+        let retrievedTimeStamp = dataStore.getDouble(key: CampaignConstants.Campaign.Datastore.REGISTRATION_TIMESTAMP_KEY) ?? CampaignConstants.Campaign.DEFAULT_TIMESTAMP_VALUE
 
         if eventTimeStamp - TimeInterval(retrievedTimeStamp) >= registrationDelay {
             Log.debug(label: LOG_TAG, "\(#function) - Registration delay of '\(registrationDelay)' seconds has elapsed. Sending the Campaign registration request.")
