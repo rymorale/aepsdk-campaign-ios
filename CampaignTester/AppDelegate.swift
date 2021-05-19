@@ -16,6 +16,7 @@ import AEPCore
 import AEPIdentity
 import AEPCampaign
 import AEPLifecycle
+import AEPUserProfile
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -24,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         MobileCore.setLogLevel(.trace)
-        MobileCore.registerExtensions([Identity.self, Campaign.self, Lifecycle.self], {
+        MobileCore.registerExtensions([Identity.self, Campaign.self, Lifecycle.self, UserProfile.self], {
             // Use the App id assigned to this application via Adobe Launch
             MobileCore.configureWith(appId: self.LAUNCH_ENVIRONMENT_FILE_ID)
         })
