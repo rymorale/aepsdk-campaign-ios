@@ -12,7 +12,6 @@
 
 import AEPCore
 import AEPServices
-import UIKit
 
 ///Helper class contains methods for tracking user's interaction with `Messages`
 class MessageInteractionTracker {
